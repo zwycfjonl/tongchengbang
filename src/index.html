@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="sass/index.css"/>
+		<link rel="stylesheet" type="text/css" href="sass/swiper.css"/>
+	</head>
+	<body>
+		<!--头部-->
+		<header>
+			<p>
+				<span>北京</span>
+				<a href="#">[切换城市]</a>
+				<a href="#">同城帮首页</a>
+			</p>
+			<ul>
+				<li><a href="#">登录<span>|</span></a></li>
+				<li><a href="#">注册<span>|</span></a></li>
+				<li><a href="#">我的订单<span>|</span></a></li>
+				<li><a href="#">在线客服（9：00-21：00）<span>|</span></a></li>
+				<li><a href="#">客户服务<span>|</span></a></li>
+				<li><a href="#">论坛<span>|</span></a></li>
+				<li><a href="#" class="advise">投诉建议</a></li>
+			</ul>
+		</header>
+		<!--导航-->
+		<nav>
+			<ul>
+				<li><a href="#">二手优品</a></li>
+				<li><a href="#">手机回收</a></li>
+				<li><a href="#">手机维修</a></li>
+				<li><a href="#">电脑维修</a></li>
+				<li><a href="#">以旧换新</a></li>
+				<li><a href="#">手机租用</a></li>
+			</ul>
+		</nav>
+		<!--轮播图-->
+		<div class="swiper-container ">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide"><img src="image/roll0.jpg"/></div>
+			    <div class="swiper-slide"><img src="image/roll1.jpg"/></div>
+			   	<div class="swiper-slide"><img src="image/roll2.jpg"/></div>
+			   	<div class="swiper-slide"><img src="image/roll3.jpg"/></div>
+	 		 </div>
+	 		 <div class="swiper-pagination"></div>
+	 		 <div class="banner-list">
+	 		 	<ul>
+	 		 		<li><span>修手机/Pad</span><a href="#">&gt;</a></li>
+	 		 		<li><span>修电脑</span><a href="#">&gt;</a></li>
+	 		 		<li><span>卖手机/电脑</span><a href="#">&gt;</a></li>
+	 		 		<li><span>卖二手手机</span><a href="#">&gt;</a></li>
+	 		 	</ul>
+	 		 </div>
+		</div>
+		<!--中间模块的内容-->
+		<div class="content">
+			<!--第一行的图片裂变-->
+			<div class="pic-list">
+				<img src="image/ad0.jpg" alt="" />
+				<img src="image/ad1.jpg" alt="" />
+				<img src="image/ad2.png" alt="" />
+				<img src="image/ad3.jpg" alt="" />
+			</div>
+			<!--热门手机回收-->
+			<h2>热门手机回收 <a href="#">查看更多</a></h2>
+			<div class="hot-tel">
+				<img src="image/ad0.png"/>
+				
+			</div>
+			<h2>优品精选<a href="#">查看更多</a></h2>
+			<div class="hot-select">
+				<img src="image/ad1.png"/>
+			</div>
+			<h2>到店维修</h2>
+		</div>
+		<p class="select">
+			<span>北京</span>
+			<span>选择区县</span>
+			<input type="text"  /><input type="button" name="" id="" value="搜索"/ >
+		</p>
+		<!--内容底部的店铺列表-->
+		<div class="shop-list">
+			<div class="bar">
+				<span>默认排序</span>
+				<ul>
+					<li>按成交量</li>
+					<li>按人气</li>
+					<li><input type="checkbox" name="" id="" value="" />先行赔付</li>
+				</ul>
+				<a href="#">地图模式</a>
+			</div>
+			<!--店铺盒子-->
+			<div class="shop">
+				<dl>
+					<dt><img src="image/goods3.jpg"/></dt>
+					<dd>
+						<p><a href="#">顺通电脑维修</a><span>店铺等级：</span></p><span>先行赔付</span><br />
+						<p>主营：电脑维修，电脑周边配件，系统维护，网络安全，打印...</p><span>同城帮认证</span><br />
+						<p>地址：北京市通州区瑞都大厦3030...</p><span>人气1234567次浏览</span><br />
+					</dd>
+					<span class="in-shop">进入店铺</span>
+				</dl>
+					<dl>
+					<dt><img src="image/goods3.jpg"/></dt>
+					<dd>
+						<p><a href="#">顺通电脑维修</a><span>店铺等级：</span></p><span>先行赔付</span><br />
+						<p>主营：电脑维修，电脑周边配件，系统维护，网络安全，打印...</p><span>同城帮认证</span><br />
+						<p>地址：北京市通州区瑞都大厦3030...</p><span>人气1234567次浏览</span><br />
+					</dd>
+					<span class="in-shop">进入店铺</span>
+				</dl>
+				
+			</div>
+		</div>
+		<div class="like">
+			
+		</div>
+	</body>
+</html>
+<script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var mySwiper = new Swiper('.swiper-container', {
+	autoplay: 5000,//可选选项，自动滑动
+	pagination : '.swiper-pagination',
+})
+</script>

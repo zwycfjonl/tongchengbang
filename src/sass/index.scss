@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+@mixin wh($w,$h){
+    width: $w;
+    height: $h;
+}
+//头部
+header{
+   @include wh(100%,40px);
+    border: 1px  solid #CCCCCC;
+    line-height: 40px;
+    background: #EEEEEE;
+}
+header p{
+    float: left;
+     span{
+         color: green;
+         font-size:20px ;
+     }
+     a{
+          color: #808080;
+       }
+}
+header {
+    ul{
+        margin-left: 700px;
+        li{
+             float: left;
+             
+             a{
+                 color: #808080;
+//               border-left: 1px solid #808080;
+                
+             }
+             span{
+                 margin-left: 10px;
+              margin-right: 10px;
+             }
+             .advise{
+                 color: red;
+             }
+        }
+    }
+   
+}
+//导航
+nav{
+    @include wh(80%,80px);
+    border:1px solid #CCCCCC;
+    margin: 0 auto;
+    background: url("../image/logo1.png" ) no-repeat 0px 10px;
+    ul{
+        margin-left: 500px;
+        li{
+            float: left;
+            line-height: 80px;
+            margin-left: 10px;
+            margin-right: 10px;     
+            a{
+                color: #666666;
+                  line-height: 30px;
+                display: inline-block;
+                @include wh(70px,30px);
+            }
+            a:hover{
+                background: #EEEEEE;
+            }
+        }
+    }
+}
+//轮播图
+.swiper-container{
+    position: relative;
+    @include wh(80%,340px);
+    margin: 0 auto;
+    .swiper-wrapper{
+         img{
+        @include wh(100%,340px);
+         }
+    }
+   .banner-list{
+       font-size: 20px;
+        color: #FFFFFF;
+       position: absolute;
+       left: 0;
+       top: 0;
+       @include wh(250px,340px);
+       z-index: 999;
+       background: rgba(0,0,0,0.4);
+       ul{
+           li{
+               border-bottom: 1px solid #808080;
+               height: 85px;
+                     line-height: 85px;
+               span{
+                   line-height: 30px;
+                   display: inline-block;
+                   @include wh(180px,30px);
+                  margin-left: 40px;
+               }
+               a{
+                   color: #FFFFFF;
+               }
+               
+           }
+           li:hover{
+                   background: rgba(0,255,0,0.4);
+               }
+       }
+   }
+    
+}
+//中间模块内容
+.content{
+     @include wh(100%,null);
+    background: #EEEEEE;
+    .pic-list{
+        margin: 0 auto;
+        background: #FFFFFF;
+        @include wh(80%,170px);
+//      border: 1px solid red;
+        img{
+            @include wh(24%,null);
+        }
+    }
+    h2{
+         color: #808080;
+         font-family: "微软雅黑";
+         @include wh(80%,50px);
+          margin: 0 auto;
+          line-height: 50px;
+         a{
+             font-size: 14px;
+             color: #808080;
+             float: right;
+         }
+    }
+    .hot-tel{
+          margin: 0 auto;
+          @include wh(80%,302px);
+          background: pink;
+    }
+    .hot-select{
+         margin: 0 auto;
+          @include wh(80%,302px);
+          background: pink;
+    }
+}
+.select{
+    @include wh(80%,40px);
+   line-height: 40px;
+    margin: 20px auto;
+    font-size:20px;
+    span{
+        display: inline-block;
+         @include wh(100px,40px);
+         text-align: center;
+         line-height: 40px;
+          border: 1px solid green;
+          margin-right: 10px;
+           float: left;
+    }
+   
+    input[type="text"]{
+          @include wh(575px,38px);
+          border: 1px solid green;
+              float: left;
+    }
+    input[type="button"]{
+         @include wh(100px,40px);
+        background: green;
+        color: white;
+         border: none;
+       float: left;
+        
+    }
+}
+//内容底部的店铺列表
+.shop-list{
+     @include wh(80%,40px);
+      margin: 0 auto;
+      //内容顶部导航条
+        .bar{
+            
+        @include wh(75%,40px);
+        background: #EEEEEE;
+         border: 1px solid #808080;
+         line-height: 40px;
+         margin-top: 20px;
+         span{
+              @include wh(100px,40px);
+             float: left;
+             border-right: 1px solid #808080;
+             display: inline-block;
+             text-align: center;
+             color: #008000;
+         }
+         ul{
+             li{
+                 float: left;
+                 margin-left: 40px;
+                 margin-right: 40px;
+             }
+         }
+         a{
+              @include wh(100px,30px);
+             float: right;
+             border: 1px solid #808080;
+             line-height: 30px;
+             margin-right: 20px;
+             margin-top: 5px;
+             text-align: center;
+             color: #333333;
+         }
+    }
+    //店铺列表
+    .shop{
+          @include wh(75%,400px);
+          color: #808080;
+          float: left;
+          margin-top: 10px;
+          border: 1px solid #CCCCCC;
+        dl{
+                
+               @include wh(100%,160px);
+               position: relative;
+               border-bottom: 1px solid #CCCCCC;
+            dt{
+                  float: left;
+                   margin-right: 10px;
+            }
+            dd{
+                margin-top: 20px;
+                line-height: 30px;
+                p{
+                    @include wh(50%,30px);
+                    display: inline-block;
+                     a{
+                        color: #008000;
+                        margin-right: 20px;
+                    }
+                    span{
+                        margin-left: 20px;
+                    }
+                }
+               span{
+                        margin-left:50px;
+                    }
+            }
+            .in-shop{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                 @include wh(100px,40px);
+                border: 1px solid green;
+                color: #008000;
+                font-size: 20px;
+                display: inline-block;
+               text-align: center;
+               line-height: 40px;
+              
+            }
+        }
+    }
+//  dl:hover{
+//      
+//  }
+}
+
+//.like{
+//   @include wh(30%,400px);
+//    border: 1px solid #CCCCCC;
+//    float: left;
+//}

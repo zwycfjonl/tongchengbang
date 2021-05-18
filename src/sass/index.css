@@ -1,0 +1,225 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none; }
+
+header {
+  width: 100%;
+  height: 40px;
+  border: 1px  solid #CCCCCC;
+  line-height: 40px;
+  background: #EEEEEE; }
+
+header p {
+  float: left; }
+  header p span {
+    color: green;
+    font-size: 20px; }
+  header p a {
+    color: #808080; }
+
+header ul {
+  margin-left: 700px; }
+  header ul li {
+    float: left; }
+    header ul li a {
+      color: #808080; }
+    header ul li span {
+      margin-left: 10px;
+      margin-right: 10px; }
+    header ul li .advise {
+      color: red; }
+
+nav {
+  width: 80%;
+  height: 80px;
+  border: 1px solid #CCCCCC;
+  margin: 0 auto;
+  background: url("../image/logo1.png") no-repeat 0px 10px; }
+  nav ul {
+    margin-left: 500px; }
+    nav ul li {
+      float: left;
+      line-height: 80px;
+      margin-left: 10px;
+      margin-right: 10px; }
+      nav ul li a {
+        color: #666666;
+        line-height: 30px;
+        display: inline-block;
+        width: 70px;
+        height: 30px; }
+      nav ul li a:hover {
+        background: #EEEEEE; }
+
+.swiper-container {
+  position: relative;
+  width: 80%;
+  height: 340px;
+  margin: 0 auto; }
+  .swiper-container .swiper-wrapper img {
+    width: 100%;
+    height: 340px; }
+  .swiper-container .banner-list {
+    font-size: 20px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 340px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.4); }
+    .swiper-container .banner-list ul li {
+      border-bottom: 1px solid #808080;
+      height: 85px;
+      line-height: 85px; }
+      .swiper-container .banner-list ul li span {
+        line-height: 30px;
+        display: inline-block;
+        width: 180px;
+        height: 30px;
+        margin-left: 40px; }
+      .swiper-container .banner-list ul li a {
+        color: #FFFFFF; }
+    .swiper-container .banner-list ul li:hover {
+      background: rgba(0, 255, 0, 0.4); }
+
+.content {
+  width: 100%;
+  background: #EEEEEE; }
+  .content .pic-list {
+    margin: 0 auto;
+    background: #FFFFFF;
+    width: 80%;
+    height: 170px; }
+    .content .pic-list img {
+      width: 24%; }
+  .content h2 {
+    color: #808080;
+    font-family: "微软雅黑";
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px; }
+    .content h2 a {
+      font-size: 14px;
+      color: #808080;
+      float: right; }
+  .content .hot-tel {
+    margin: 0 auto;
+    width: 80%;
+    height: 302px;
+    background: pink; }
+  .content .hot-select {
+    margin: 0 auto;
+    width: 80%;
+    height: 302px;
+    background: pink; }
+
+.select {
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px auto;
+  font-size: 20px; }
+  .select span {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid green;
+    margin-right: 10px;
+    float: left; }
+  .select input[type="text"] {
+    width: 575px;
+    height: 38px;
+    border: 1px solid green;
+    float: left; }
+  .select input[type="button"] {
+    width: 100px;
+    height: 40px;
+    background: green;
+    color: white;
+    border: none;
+    float: left; }
+
+.shop-list {
+  width: 80%;
+  height: 40px;
+  margin: 0 auto; }
+  .shop-list .bar {
+    width: 75%;
+    height: 40px;
+    background: #EEEEEE;
+    border: 1px solid #808080;
+    line-height: 40px;
+    margin-top: 20px; }
+    .shop-list .bar span {
+      width: 100px;
+      height: 40px;
+      float: left;
+      border-right: 1px solid #808080;
+      display: inline-block;
+      text-align: center;
+      color: #008000; }
+    .shop-list .bar ul li {
+      float: left;
+      margin-left: 40px;
+      margin-right: 40px; }
+    .shop-list .bar a {
+      width: 100px;
+      height: 30px;
+      float: right;
+      border: 1px solid #808080;
+      line-height: 30px;
+      margin-right: 20px;
+      margin-top: 5px;
+      text-align: center;
+      color: #333333; }
+  .shop-list .shop {
+    width: 75%;
+    height: 400px;
+    color: #808080;
+    float: left;
+    margin-top: 10px;
+    border: 1px solid #CCCCCC; }
+    .shop-list .shop dl {
+      width: 100%;
+      height: 160px;
+      position: relative;
+      border-bottom: 1px solid #CCCCCC; }
+      .shop-list .shop dl dt {
+        float: left;
+        margin-right: 10px; }
+      .shop-list .shop dl dd {
+        margin-top: 20px;
+        line-height: 30px; }
+        .shop-list .shop dl dd p {
+          width: 50%;
+          height: 30px;
+          display: inline-block; }
+          .shop-list .shop dl dd p a {
+            color: #008000;
+            margin-right: 20px; }
+          .shop-list .shop dl dd p span {
+            margin-left: 20px; }
+        .shop-list .shop dl dd span {
+          margin-left: 50px; }
+      .shop-list .shop dl .in-shop {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: 40px;
+        border: 1px solid green;
+        color: #008000;
+        font-size: 20px;
+        display: inline-block;
+        text-align: center;
+        line-height: 40px; }
+
+/*# sourceMappingURL=index.css.map */
