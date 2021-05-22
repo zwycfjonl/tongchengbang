@@ -9,20 +9,68 @@
 	<body>
 		<!--头部-->
 		<header>
-			<p>
+			<p class="city">
 				<span>北京</span>
-				<a href="#">[切换城市]</a>
+				<a href="#" id="city-btn">[切换城市]</a>
 				<a href="#">同城帮首页</a>
 			</p>
-			<ul>
-				<li><a href="#">登录<span>|</span></a></li>
-				<li><a href="#">注册<span>|</span></a></li>
+			<div id="citypage1">
+				<h5>城市列表</h5>
+				<div id="citypage">
+					<h6>热门城市：</h6>
+					<ul id="hot-list">		
+					</ul>
+					<h6>拼音:</h6>
+					<ul id="letter-list">
+					</ul>
+					<ul id="city-list">
+					</ul>
+				</div>
+					
+			</div>
+			<ul class="log">
+				<li><a href="#" class="lg1">登录<span>|</span></a></li>
+				<li><a href="#" class="lg">注册<span>|</span></a></li>
 				<li><a href="#">我的订单<span>|</span></a></li>
 				<li><a href="#">在线客服（9：00-21：00）<span>|</span></a></li>
 				<li><a href="#">客户服务<span>|</span></a></li>
 				<li><a href="#">论坛<span>|</span></a></li>
 				<li><a href="#" class="advise">投诉建议</a></li>
 			</ul>
+			<!--登录-->
+			<div id="login">
+				<span id="close-lg">x</span>
+				<h2>欢迎注册360同城帮</h2>
+				<p>账号：<input type="text"  id="userName"/></p>
+				<p>密码：<input type="text" id="pwd" /></p>
+				<input type="checkbox" />下次自动登录
+				<button id="lgBtn">立即登录</button><br />
+				<span>其他账号登录</span><img src="image/dianxin.png"/><img src="image/feixin.png"/>
+			</div>
+			<!--注册-->
+			<div id="newUser">
+				<span id="close-log">x</span>
+				<h2>欢迎注册360同城帮</h2>
+				<div id="user-block">
+					<h3 class="tel"><img src="image/phone.png"/>手机号注册</h3>
+					<h3 class="emile"><img src="image/mail.png"/>邮箱注册</h3>
+					<p>已有账号，<a href="#">立即登录</a></p>
+				</div>
+				<div id="tel-block">
+					<!--需要接口，验证手机是否注册-->
+				手机号<input type="text"  id="tel"/><span>请输入您的手机号</span><br />
+				<!--需要接口，返回校验码-->
+				验证码<input type="text" id="yzm" /><b id="yz"></b><a href="#" onclick = "getYzm()">换一张</a><span>请输入图中的字母或数字，不区分大小写</span><br />
+				<!--需要接口，发送验证码-->
+				校验码<input type="text" id="jym"/><button onclick="clickXy()">免费获取校验码</button><span>请输入短信中6位数字校验码</span><br />
+				<!--前台验证-->
+				密&nbsp;&nbsp;&nbsp;码<input type="text" id="pwd" /><span>6-20个字符(区分大小写)</span><br />
+				<button onclick="addUser()" id="set">马上注册</button><br />
+				<!--需要接口 添加用户-->
+				<input type="checkbox" id="check"/>我已阅读并同意<a href="#">360服务条款</a>
+				</div>
+				
+			</div>
 		</header>
 		<!--导航-->
 		<nav>
@@ -65,12 +113,22 @@
 			<!--热门手机回收-->
 			<h2>热门手机回收 <a href="#">查看更多</a></h2>
 			<div class="hot-tel">
-				<img src="image/ad0.png"/>
+				<div class="pic-head">
+					<img src="image/ad0.png"/>
+				</div>
+				<ul id ="phone">
+					
+				</ul>
 				
 			</div>
 			<h2>优品精选<a href="#">查看更多</a></h2>
 			<div class="hot-select">
-				<img src="image/ad1.png"/>
+				<div>
+					<img src="image/ad1.png"/>
+				</div>
+				<ul id="like">
+					
+				</ul>
 			</div>
 			<h2>到店维修</h2>
 		</div>
@@ -112,17 +170,254 @@
 				</dl>
 				
 			</div>
-		</div>
+	</div>
 		<div class="like">
-			
+			<h2>高评价店铺</h2>
+			<dl>
+				<dt><img src="image/goods3.jpg" alt="" /></dt>
+				<dd>附加费接口规范开关柜</dd>
+				<dd>发几个发给大家分开</dd>
+			</dl>
+			<dl>
+				<dt><img src="image/goods3.jpg" alt="" /></dt>
+				<dd>附加费接口规范开关柜</dd>
+				<dd>发几个发给大家分开</dd>
+			</dl>
+			<dl>
+				<dt><img src="image/goods3.jpg" alt="" /></dt>
+				<dd>附加费接口规范开关柜</dd>
+				<dd>发几个发给大家分开</dd>
+			</dl>
+			<dl>
+				<dt><img src="image/goods3.jpg" alt="" /></dt>
+				<dd>附加费接口规范开关柜</dd>
+				<dd>发几个发给大家分开</dd>
+			</dl>
+		</div>
+		<div class="footer">
+			<ul>
+				<li>
+					<h3><img src="image/feixin.png"/>购物指南</h3>
+					<p>购物流程</p>
+					<p>帮助文档</p>
+				</li>
+				
+			</ul>
+			<ul>
+				<li>
+					<h3><img src="image/feixin.png"/>购物指南</h3>
+					<p>购物流程</p>
+					<p>帮助文档</p>
+				</li>
+				
+			</ul>
+			<ul>
+				<li>
+					<h3><img src="image/feixin.png"/>购物指南</h3>
+					<p>购物流程</p>
+					<p>帮助文档</p>
+				</li>
+				
+			</ul>
+			<ul>
+				<li>
+					<h3><img src="image/feixin.png"/>购物指南</h3>
+					<p>购物流程</p>
+					<p>帮助文档</p>
+				</li>
+				
+			</ul>
+			<ul>
+				<li>
+					<h3><img src="image/feixin.png"/>购物指南</h3>
+					<p>购物流程</p>
+					<p>帮助文档</p>
+				</li>
+				
+			</ul>
+			<p>
+				<span>客服电话：4000-445-4545</span><span>投诉建议</span><span>网站地图</span>
+			</p>
 		</div>
 	</body>
+	
 </html>
+<script type="text/html" id="city-tmp">
+
+	<%for(var i = 0;i<arr.length;i++){%>
+		<li>
+			<%=arr[i].name%>
+		</li>	
+	<%}%>
+</script>
+<script type="text/html" id="letter-tmp">
+	
+	<%for(var i in letterObj){%>
+		<li onclick="tab('<%=i%>')"><%=i%></li>
+	<%}%>
+</script>
+<script type="text/template" id="city-tmp">
+	
+</script>
+<script type="text/html" id="tel-list">
+	
+	<%for(var i = 0;i < arr.length;i++){%>
+		<li>
+			<img src="<%=arr[i].img_url%>"/>
+			<p><%=arr[i].model_alis%></p>
+		</li>	
+	<%}%>
+</script>
+<script type="text/html" id="old-list">
+	<%for(var i = 0;i < arr.length;i++){%>
+		<li>
+			<img src="<%=arr[i].thum_img.big%>"/>
+			<p><%=arr[i].brand_name%><%=arr[i].model_name%><%=arr[i].price%></p>
+		</li>	
+	<%}%>
+</script>
+<script src="js/baiduTemplate.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+	//获取图片
+	function getPhone(){
+		$.get("http://localhost:6500/src/data/shoujihuishou.json",{},function(res){
+			console.log(res)
+			var obj = {}
+			obj.arr = res.result;
+			$("#phone").html(baidu.template("tel-list",obj));
+		})
+	}
+	getPhone()
+	//获取优品精选的图片
+	function getLike(){
+		$.get("http://localhost:6500/src/data/youpinjingxuan.json",{},function(res){
+			console.log(res)
+			var obj = {}
+			obj.arr = res.result;
+			$("#like").html(baidu.template("old-list",obj));
+		})
+	}
+	getLike()
+	
+	
+	
+	//轮播图
 	var mySwiper = new Swiper('.swiper-container', {
-	autoplay: 5000,//可选选项，自动滑动
-	pagination : '.swiper-pagination',
-})
+		autoplay: 5000,//可选选项，自动滑动
+		pagination : '.swiper-pagination',
+	})
+	var obj = {} ;
+	$("#city-btn").click(function(){
+		$("#citypage1").toggle();
+	})
+	//获取所有信息
+	$.get("http://localhost:6500/src/data/city.json",{},function(res){
+		console.log(res);
+		obj.arr = res.result.hotcity;
+		obj.letterObj = res.result.citylist;
+		$("#hot-list").html(baidu.template("city-tmp",obj));
+		$("#letter-list").html(baidu.template("letter-tmp",obj));
+		tab("A")
+	})
+	function tab(k){
+		var arr = obj.letterObj[k];
+		var cityObj = {};
+		cityObj.arr = arr;
+		$("#city-list").html(baidu.template("city-tmp",cityObj));
+	}
+	function cgName(name){
+		$("h6").html(name)
+	}
+	/////////////////////////////////////////////////////////////////
+	//点击注册
+	$(".lg").click(function(){
+		$("#newUser").show();
+	})
+	//点击关闭登录界面
+   $("#close-log").click(function(){
+// 		$("#newUser").style
+		newUser.style.display = "none"
+   })
+	//首先在输入手机号的框 验证失焦状态手机是否验证过
+	$("#tel").on("blur",function(){
+		if($("#tel").val()==""){
+			$("#tel").next().html("请输入手机号码");
+			return;
+		}
+		$.get("http://localhost:6500/isrepeat",{
+			tel:$("#tel").val()
+		},function(res){
+			console.log(1)
+			if(res == 0){
+				$("#tel").next().html("该号已被注册，请登录");
+			}else{
+				$("#tel").next().html("手机号输入正确");
+			}
+		})
+	})
+	
+	//获取验证码
+	function getYzm(){
+		$.post("http://localhost:6500/yzm",{},function(res){
+			console.log(res);
+			$("#yz").html(res);
+		})
+	}
+	getYzm();
+	//获取校验码
+	function getXym(){
+		$.post("http://localhost:6500/xym",{
+			tel:$("#tel").val(),
+			time:(new Date()).getTime()
+		},function(res){
+			console.log(res)
+			$("#jym").val(res);
+		})
+	}
+   //点击获取校验码
+   function clickXy(){
+   	  if($("#tel").val()==""){
+   	  	$("#tel").next().html("不能为空");
+   	  	return;
+   	  }else if($("#yzm").val()==""){
+   	  	$("#yz").html("验证码不相符")
+   	  }else{
+   	  	getXym()
+   	  	
+   	  }
+   }
+   //注册
+   function addUser(){
+   		$.post("http://localhost:6500/addUser",{
+   			tel:$("#tel").val(),
+   			pwd:$("#pwd").val(),
+   			time:(new Date()).getTime(),
+   			xym:$("#jym").val()
+   		},function(res){
+   			console.log(res)
+   		})
+   }
+   //点击复选框 同意条例
+   $("#check").click(function(){
+   		//如果复选框没有被选中 注册也无法选中
+   		if($(this).prop("checked")==false){
+   			$("#set").attr("disabled","disabled");
+   		}else if($(this).prop("checked")==true){
+   			$("#set").removeAttr("disabled");
+   		}
+   		
+   		
+   })
+   /////////////////////////////////////////////////////////////////////////
+   //登录页面
+   
+   $("#close-lg").click(function(){
+   		$("#login").hide()
+   })
+   $(".lg1").click(function(){
+   		$("#login").show()
+   })
+   
 </script>

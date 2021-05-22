@@ -12,30 +12,181 @@ header {
   line-height: 40px;
   background: #EEEEEE; }
 
-header p {
+header .city {
   float: left; }
-  header p span {
+  header .city span {
     color: green;
     font-size: 20px; }
-  header p a {
+  header .city a {
     color: #808080; }
 
-header ul {
-  margin-left: 700px; }
-  header ul li {
-    float: left; }
-    header ul li a {
-      color: #808080; }
-    header ul li span {
-      margin-left: 10px;
-      margin-right: 10px; }
-    header ul li .advise {
-      color: red; }
+header {
+  position: relative; }
+  header .log {
+    margin-left: 700px; }
+    header .log li {
+      float: left; }
+      header .log li a {
+        color: #808080; }
+      header .log li span {
+        margin-left: 10px;
+        margin-right: 10px; }
+      header .log li .advise {
+        color: red; }
+  header #citypage1 {
+    line-height: 30px;
+    border: 1px solid #CCCCCC;
+    width: 600px;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+    z-index: 6;
+    display: none; }
+    header #citypage1 #citypage {
+      cursor: pointer;
+      margin: 10px;
+      background: #FFFFFF;
+      border: 1px solid #CCCCCC;
+      width: 580px; }
+      header #citypage1 #citypage ul {
+        overflow: hidden; }
+        header #citypage1 #citypage ul li {
+          float: left;
+          padding-left: 5px; }
+
+#letter-list {
+  border-bottom: 1px solid #CCCCCC; }
+
+#login {
+  width: 500px;
+  height: 300px;
+  border: 1px solid #CCCCCC;
+  background: #FFFFFF url(../image/man1.png) no-repeat;
+  position: absolute;
+  top: 200px;
+  left: 600px;
+  z-index: 33;
+  display: none; }
+  #login h2 {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #CCCCCC; }
+  #login input[type="text"] {
+    width: 300px;
+    height: 40px; }
+  #login input[type="checkbox"] {
+    margin-left: 100px; }
+  #login span {
+    margin-left: 100px; }
+  #login p {
+    margin-left: 50px;
+    margin-top: 10px; }
+  #login #lgBtn {
+    width: 300px;
+    height: 40px;
+    margin-left: 100px; }
+  #login #close-lg {
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 20px; }
+
+#tel-block {
+  width: 395px;
+  height: 400px;
+  line-height: 16px;
+  float: left;
+  padding-left: 10px;
+  font-size: 18px;
+  border-left: 1px solid #CCCCCC; }
+  #tel-block span {
+    display: block;
+    margin-left: 70px;
+    font-size: 14px; }
+  #tel-block button {
+    width: 120px;
+    height: 40px;
+    margin-left: 10px; }
+  #tel-block input[type="text"] {
+    margin-left: 10px; }
+  #tel-block input:nth-child(1) {
+    width: 300px;
+    height: 40px; }
+  #tel-block :nth-child(4) {
+    width: 170px;
+    height: 40px; }
+  #tel-block :nth-child(9) {
+    width: 170px;
+    height: 40px; }
+  #tel-block :nth-child(13) {
+    width: 300px;
+    height: 40px; }
+  #tel-block #set {
+    width: 305px;
+    height: 40px;
+    margin-left: 60px;
+    background: green;
+    border: 1px solid #CCCCCC;
+    color: #FFFFFF;
+    font-size: 18px; }
+  #tel-block input[type="checkbox"] {
+    margin-left: 60px;
+    margin-top: 10px; }
+
+#user-block {
+  width: 150px;
+  height: 400px;
+  position: relative;
+  float: left;
+  padding-top: 30px;
+  color: #666666; }
+  #user-block .tel {
+    border: 1px solid #CCCCCC;
+    background: #a7deef; }
+    #user-block .tel img {
+      margin-top: 20px; }
+  #user-block .emile {
+    border: 1px solid #CCCCCC; }
+    #user-block .emile img {
+      margin-top: 20px; }
+  #user-block p {
+    margin-top: 195px; }
+
+#close-log {
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 20px; }
+
+#newUser {
+  width: 600px;
+  height: 470px;
+  background: #FFFFFF url(../image/man1.png) no-repeat;
+  display: none;
+  border: 1px solid #CCCCCC;
+  position: absolute;
+  cursor: pointer;
+  top: 200px;
+  left: 600px;
+  z-index: 33; }
+  #newUser h2 {
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #CCCCCC; }
+  #newUser b {
+    width: 90px;
+    height: 40px;
+    display: inline-block;
+    border: 1px solid #333;
+    line-height: 35px;
+    margin-left: 10px;
+    text-align: center; }
 
 nav {
   width: 80%;
   height: 80px;
-  border: 1px solid #CCCCCC;
   margin: 0 auto;
   background: url("../image/logo1.png") no-repeat 0px 10px; }
   nav ul {
@@ -112,7 +263,22 @@ nav {
     margin: 0 auto;
     width: 80%;
     height: 302px;
-    background: pink; }
+    background: #FFFFFF; }
+    .content .hot-tel .pic-head {
+      float: left;
+      width: 18%;
+      height: 302px; }
+    .content .hot-tel ul {
+      width: 100%;
+      height: 302px; }
+      .content .hot-tel ul li {
+        text-align: center;
+        float: left;
+        width: 16.3%;
+        height: 290px; }
+        .content .hot-tel ul li img {
+          width: 70%;
+          height: 90%; }
   .content .hot-select {
     margin: 0 auto;
     width: 80%;
@@ -149,7 +315,6 @@ nav {
 
 .shop-list {
   width: 80%;
-  height: 40px;
   margin: 0 auto; }
   .shop-list .bar {
     width: 75%;
@@ -182,11 +347,9 @@ nav {
       color: #333333; }
   .shop-list .shop {
     width: 75%;
-    height: 400px;
     color: #808080;
     float: left;
-    margin-top: 10px;
-    border: 1px solid #CCCCCC; }
+    margin-top: 10px; }
     .shop-list .shop dl {
       width: 100%;
       height: 160px;
@@ -221,5 +384,35 @@ nav {
         display: inline-block;
         text-align: center;
         line-height: 40px; }
+
+.like {
+  width: 300px;
+  height: 500px;
+  margin-left: 80px;
+  border: 1px solid #CCCCCC;
+  float: left; }
+  .like dl {
+    width: 100%;
+    height: 70px;
+    margin-top: 10px; }
+    .like dl img {
+      width: 100px;
+      height: 70px;
+      float: left; }
+
+.footer {
+  float: left;
+  padding-top: 20px;
+  color: #333333;
+  width: 100%;
+  height: 200px;
+  border-top: 1px solid #CCCCCC; }
+  .footer ul li {
+    width: 20%;
+    height: 100px;
+    text-align: center;
+    float: left; }
+  .footer p {
+    text-align: center; }
 
 /*# sourceMappingURL=index.css.map */
