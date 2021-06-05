@@ -341,7 +341,26 @@ nav{
     .hot-select{
          margin: 0 auto;
           @include wh(80%,302px);
-          background: pink;
+          background:white;
+            .pic-select{
+              float: left;
+              @include wh(18%,302px);
+//            border: 1px solid blue;
+          }
+          ul{
+              @include wh(100%,302px);
+//            border: 1px solid red;
+              li{
+                  text-align: center;
+                   float: left;
+                   @include wh(16.3%,290px);
+                   img{
+                       @include wh(80%,90%);
+                   }
+                    
+              }
+          
+          }
     }
 }
 .select{
@@ -457,11 +476,16 @@ nav{
                 display: inline-block;
                text-align: center;
                line-height: 40px;
+               display: none;
               
             }
         }
     }
-
+    dl:hover{
+       .in-shop{
+           display: block;
+       }
+    }
 }
 
 .like{
@@ -486,6 +510,10 @@ nav{
     color: #333333;
      @include wh(100%,200px);
       border-top: 1px solid #CCCCCC;
+      a{
+          color: #333333;  
+          margin-left: 10px;
+      }
       ul{
           li{
              @include wh(20%,100px);
@@ -495,5 +523,9 @@ nav{
       }
       p{
           text-align: center;
+          span{
+               margin-left: 20px;
+          }
       }
+      
 }
