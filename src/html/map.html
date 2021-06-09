@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="search" />
+		<div id="container" style="width:500px; height:300px"></div>
+	
+	</body>
+	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=1118c35f02f4a0945dbeab07edecdc79"></script> 
+</html>
+<script type="text/javascript">
+	var map = new AMap.Map('container',{
+	   zoom: 10,
+	   center: [116.39,39.9]
+	});
+//添加地图控件
+
+	AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView'],
+	    function(){
+	    	//创建工具条对象
+	        map.addControl(new AMap.ToolBar());
+			//添加到地图上
+	        map.addControl(new AMap.Scale());
+	
+	        map.addControl(new AMap.OverView({isOpen:true}));
+	});
+	//添加标记
+	marker = new AMap.Marker({
+		//标记位置 经度和纬度
+		position: [116.656552,39.886672],
+		//鼠标悬停
+		title: "顺通电脑维修",
+		icon:"../image/icon.png",
+		//content:"<div class='st'>顺通电脑</div>",//icon 会被content覆盖
+		map: map
+	    });
+    //向地图添加时间
+    var clickFn= function(){
+    	alert(1)
+    }
+    AMap.event.addListener(marker,"click",clickFn);
+    //自动补全
+    AMap.plugin('AMap.Autocomplete',function(){//回调函数
+    //实例化Autocomplete
+    var autoOptions = {
+        city: "", //城市，默认全国
+        input:"search"//使用联想输入的input的id
+    };
+    autocomplete= new AMap.Autocomplete(autoOptions);
+    //TODO: 使用autocomplete对象调用相关功能
+		     AMap.event.addListener(autocomplete,"select",function(e){
+		     	console.log(e)
+		     	e.poi.location;
+		     	marker = new AMap.Marker({
+				map: map
+		    });
+	     })
+    
+	})
+    
+    AMap.service('AMap.Geocoder',function(){//回调函数
+    //实例化Geocoder
+	    geocoder = new AMap.Geocoder({
+	        city: "010"//城市，默认：“全国”
+	    });
+    //逆地理编码
+		var lnglatXY=[116.396574, 39.992706];//地图上所标点的坐标
+		geocoder.getAddress(lnglatXY, function(status, result) {
+		    if (status === 'complete' && result.info === 'OK') {
+		       //获得了有效的地址信息:
+		       //即，result.regeocode.formattedAddress
+		    }else{
+		       //获取地址失败
+		    }
+		});  
+	    //TODO: 使用geocoder 对象完成相关功能
+	})
+    
+    
+    
+    
+</script>
+

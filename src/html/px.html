@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<!--店铺列表-->
+<script type="text/html" id="sortList">
+        <%for(var i=0;i< arr.length;i++){%>
+            <li>
+                <div class="liL">
+                    <img src="<%=arr[i].shop_ico%>" alt="">
+                </div>
+                <div class="liC">
+                    <p>
+                        <span><%=arr[i].shop_name%></span>
+                        <span>店铺等级:<%=arr[i].level%></span>
+                    </p>
+                    <p>主营：<%=arr[i].main%></p>
+                    <p>地址：<%=arr[i].addr_detail%></p>
+                </div>
+                <div class="liR">
+                    <p>
+                        <img src="image/rmb.png" alt="">
+                        <span>先行赔付</span>
+                    </p>
+                    <p>
+                        <img src="image/vip.png" alt="">
+                        <span>同城帮认证</span>
+                    </p>
+                    <p>人气：<%=arr[i].shop_visit%>次浏览</p>
+                </div>
+                <a href="" class="enterStore">进入店铺</a>
+            </li>
+        <%}%>
+</script>
+</html>
+<script type="text/javascript">
+	
+
+/*排序按钮*/
+$("#default").css({
+    color:"green",
+    border:"1px solid #cccccc"
+}).click(function () {
+    $(this).css({
+        color:"green",
+        border:"1px solid #cccccc"
+    }).next().css({
+        color:"#000000",
+        border:"none"
+    }).next().css({
+        color:"#000000",
+        border:"none"
+    });
+    getAllStore("");
+});
+$("#count").click(function () {
+    $(this).css({
+        color:"green",
+        border:"1px solid #cccccc"
+    }).next().css({
+        color:"#000000",
+        border:"none"
+    }).prev().prev().css({
+        color:"#000000",
+        border:"none"
+    });
+    getAllStore("count");
+});
+$("#visit").click(function () {
+    $(this).css({
+        color:"green",
+        border:"1px solid #cccccc"
+    }).prev().css({
+        color:"#000000",
+        border:"none"
+    }).prev().css({
+        color:"#000000",
+        border:"none"
+    });
+    getAllStore("shop_visit");
+});
+/*获取所有商铺信息*/
+function getAllStore(type) {
+    $.get("http://localhost:8080/sort",{
+        type:type
+    },function (res) {
+        console.log(res);
+        var obj={};
+        obj.arr=res;
+        $("#list").html(baidu.template("sortList",obj));
+        showStore();
+        enterStore();
+    });
+}
+
+/*滑过显示进入店铺*/
+function showStore() {
+    $.each($("#list").children("li"),function (index,item) {
+        $(item).on("mouseover mouseout",function (e) {
+            if(e.type=="mouseover"){
+                $(item).css("background","#f7f7f7").children("a").show();
+            }else if(e.type=="mouseout"){
+                $(item).css("background","#ffffff").children("a").hide();
+            }
+        });
+    });
+}
+/*点击进入店铺按钮*/
+function enterStore() {
+    $.each($(".enterStore"),function (index,item) {
+        $(item).on("click",function () {
+            open("html/shop.html");
+        });
+    });
+}
+</script>
+

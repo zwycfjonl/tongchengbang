@@ -1,4 +1,330 @@
+
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
+@mixin wh($w,$h){
+    width: $w;
+    height: $h;
+}
+html,body{
+    width: 100%;
+}
+//头部
+header{
+   @include wh(100%,40px);
+    border: 1px  solid #CCCCCC;
+    line-height: 40px;
+    background: #EEEEEE;
+}
+header .city{
+    float: left;
+     span{
+         color: green;
+         font-size:20px ;
+     }
+     a{
+          color: #808080;
+       }
+}
+header {
+    position: relative;
+   
+   .log{
+        margin-left: 700px;
+        li{
+             float: left;
+             
+             a{
+                 color: #808080;
+//               border-left: 1px solid #808080;
+                
+             }
+             span{
+                 margin-left: 10px;
+              margin-right: 10px;
+             }
+             .advise{
+                 color: red;
+             }
+        }
+    }
+   #citypage1{
+      line-height: 30px;
+       border: 1px solid #CCCCCC;
+       width: 600px;
+       position: absolute;
+       top: 40px;
+       left:50px;
+       z-index: 6;
+       display: none;
+       #citypage{
+           cursor: pointer;
+           margin: 10px;
+            background: #FFFFFF;
+            border: 1px solid #CCCCCC;
+            width: 580px;
+           
+      ul {
+          overflow: hidden;
+          li{
+              float: left;
+              padding-left: 5px;
+          }
+            
+        }
+   }
+       }
+      
+}
+#letter-list{
+    border-bottom: 1px solid #CCCCCC;
+    
+}
+//点击登录出现的模块
+#login{
+    @include wh(500px,300px);
+     border: 1px solid #CCCCCC;
+      background: #FFFFFF url(../image/man1.png) no-repeat;
+     position: absolute;
+     top: 200px;
+    left: 600px;
+    z-index: 33;
+    display:none;
+     h2{
+         @include wh(100%,70px);
+       text-align: center;
+        border-bottom: 1px solid #CCCCCC;
+    }
+    input[type="text"]{
+        @include wh(300px,40px);
+    }
+    input[type="checkbox"]{
+        margin-left: 100px;
+    }
+    span{
+        margin-left: 100px;
+    }
+    p{
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+    #lgBtn{
+        @include wh(300px,40px);
+         margin-left: 100px;
+    }
+    #close-lg{
+         font-size: 30px;
+         position: absolute;
+         top: 0;
+         right: 20px;
+    }
+}
+#tel-block{
+    @include wh(395px,400px);
+     line-height: 16px;
+    float: left;
+    padding-left: 10px;
+    font-size: 18px;
+     border-left: 1px solid #CCCCCC;
+     span{
+         display: block;
+        margin-left: 70px;
+        font-size: 14px;
+     }
+     button{
+         @include wh(120px,40px);
+         margin-left: 10px;
+     }
+     input[type="text"]{
+          margin-left: 10px;
+     }
+     input:nth-child(1){
+        @include wh(300px,40px);
+    }
+    :nth-child(4){
+        @include wh(170px,40px);
+    }
+    :nth-child(9){
+        @include wh(170px,40px);
+    }
+    :nth-child(13){
+        @include wh(300px,40px);
+    }
+    #set{
+        @include wh(305px,40px);
+        margin-left: 60px;
+        background: green;
+        border: 1px solid #CCCCCC;
+        color: #FFFFFF;
+        font-size: 18px;
+    }
+    input[type="checkbox"]{
+        margin-left: 60px;
+        margin-top: 10px;
+    }
+}
+
+#user-block{
+    @include wh(150px,400px);
+    position: relative;
+     float: left;
+     padding-top: 30px;
+     
+      color: #666666;
+     .tel{
+              border: 1px solid #CCCCCC;
+               background: #a7deef;
+               img{
+                   margin-top: 20px;
+               }
+     }
+     
+     .emile{
+              border: 1px solid #CCCCCC;
+               img{
+                   margin-top: 20px;
+               }
+     }
+     p{
+         margin-top: 195px;
+     }
+}
+ #close-log{
+        
+         font-size: 30px;
+         position: absolute;
+         top: 0;
+         right: 20px;
+        
+     }
+     
+//点击注册
+#newUser{
+    @include wh(600px,470px);
+    background: #FFFFFF url(../image/man1.png) no-repeat;
+    display: none;
+     border: 1px solid #CCCCCC;
+     position: absolute;
+     cursor: pointer;
+     top: 200px;
+    left: 600px;
+    z-index: 33;
+    h2{
+         @include wh(100%,70px);
+       text-align: center;
+        border-bottom: 1px solid #CCCCCC;
+    }
+    b{
+        @include wh(90px,40px);
+         display: inline-block;
+         border: 1px solid #333;
+          line-height: 35px;
+          margin-left: 10px;
+          text-align: center;
+     }
+}
+.nav{
+    @include wh(100%,120px);
+     border-bottom: 1px solid #4BAC20;
+      ul{
+        @include wh(50%,50px);
+//      border: 1px solid #333;
+        padding-left: 400px;
+        float: left;
+        margin-bottom: 10px;
+        li{
+            float: left;
+            line-height: 80px;
+            margin-left: 10px;
+            margin-right: 10px;     
+            a{
+                color: #666666;
+                  line-height: 30px;
+                  text-align: center;
+                display: inline-block;
+                @include wh(70px,30px);
+            }
+            a:hover{
+                background: #EEEEEE;
+            }
+        }
+    }
+     input[type="text"]{
+          @include wh(500px,46px);
+          border: 2px solid #4BAC20;
+           float: left;
+           margin-left: 580px;
+    }
+    input[type="button"]{
+         @include wh(100px,50px);
+        background: #4BAC20;
+        color: white;
+         border: none;
+       float: left;
+        
+    }
+    
+}
+.shop{
+         @include wh(1000px,200px);
+         border: 1px solid #CCCCCC;
+         margin: 0 auto;
+          margin-top: 10px;
+        dl{   
+               @include wh(100%,160px);
+               position: relative;
+              
+            dt{
+                  float: left;
+                   margin-right: 10px;
+            }
+            dd{
+                margin-top: 20px;
+                line-height: 30px;
+                p{
+                    @include wh(50%,30px);
+                    display: inline-block;
+                     a{
+                        color: #008000;
+                        margin-right: 20px;
+                    }
+                    span{
+                        margin-left: 20px;
+                    }
+                }
+               span{
+                        margin-left:50px;
+                    }
+            }
+           
+    }
+}
+.footer{
+    float: left;
+    padding-top: 20px;
+    color: #333333;
+     @include wh(100%,200px);
+      border-top: 1px solid #CCCCCC;
+      a{
+          color: #333333;  
+          margin-left: 10px;
+      }
+      ul{
+          li{
+             @include wh(20%,100px);
+             text-align: center;
+            float: left;
+          }
+      }
+      p{
+          text-align: center;
+          span{
+               margin-left: 20px;
+          }
+      }
+      
+}
+

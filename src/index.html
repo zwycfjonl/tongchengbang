@@ -142,17 +142,22 @@
 		<!--内容底部的店铺列表-->
 		<div class="shop-list">
 			<div class="bar">
-				<span>默认排序</span>
 				<ul>
-					<li>按成交量</li>
-					<li>按人气</li>
-					<li><input type="checkbox" name="" id="" value="" />先行赔付</li>
+					<li id="default">默认排序</li>
+					<li id="number">按成交量</li>
+					<li id="people">按人气</li>	
 				</ul>
-				<a href="#">地图模式</a>
+				<span style="border: none;"><input type="checkbox" name="" id="" value=""  />先行赔付</span>
+				<a href="javascript:return false" id="map-btn">地图模式</a>
+			<div id="map-box">
+				<input type="text" id="search" />
+				<div id="container" style="width:800px; height:500px"></div>
 			</div>
+			</div>
+			
 			<!--店铺盒子-->
 			<div class="shop">
-				<dl>
+				<!--<dl>
 					<dt><img src="image/goods3.jpg"/></dt>
 					<dd>
 						<p><a href="#">顺通电脑维修</a><span>店铺等级：</span></p><span>先行赔付</span><br />
@@ -160,41 +165,25 @@
 						<p>地址：北京市通州区瑞都大厦3030...</p><span>人气1234567次浏览</span><br />
 					</dd>
 					<span class="in-shop">进入店铺</span>
-				</dl>
-					<dl>
-					<dt><img src="image/goods3.jpg"/></dt>
-					<dd>
-						<p><a href="#">顺通电脑维修</a><span>店铺等级：</span></p><span>先行赔付</span><br />
-						<p>主营：电脑维修，电脑周边配件，系统维护，网络安全，打印...</p><span>同城帮认证</span><br />
-						<p>地址：北京市通州区瑞都大厦3030...</p><span>人气1234567次浏览</span><br />
-					</dd>
-					<span class="in-shop">进入店铺</span>
-				</dl>
+				</dl>-->
+					
 				
 			</div>
 	</div>
+	<p id="good">商家好评榜</p>
 		<div class="like">
-			<h2>高评价店铺</h2>
-			<dl>
-				<dt><img src="image/goods3.jpg" alt="" /></dt>
+			
+			
+			<!--<dl>
+				<dt><span>1</span><img src="image/goods3.jpg" alt="" /></dt>
 				<dd>附加费接口规范开关柜</dd>
 				<dd>发几个发给大家分开</dd>
 			</dl>
 			<dl>
-				<dt><img src="image/goods3.jpg" alt="" /></dt>
+				<dt><span>1</span><img src="image/goods3.jpg" alt="" /></dt>
 				<dd>附加费接口规范开关柜</dd>
 				<dd>发几个发给大家分开</dd>
-			</dl>
-			<dl>
-				<dt><img src="image/goods3.jpg" alt="" /></dt>
-				<dd>附加费接口规范开关柜</dd>
-				<dd>发几个发给大家分开</dd>
-			</dl>
-			<dl>
-				<dt><img src="image/goods3.jpg" alt="" /></dt>
-				<dd>附加费接口规范开关柜</dd>
-				<dd>发几个发给大家分开</dd>
-			</dl>
+			</dl>-->
 		</div>
 		<div class="footer">
 			<ul>
@@ -275,10 +264,92 @@
 		</li>	
 	<%}%>
 </script>
+<script type="text/html" id="store-tmp">
+	
+	<%for(var i = 0 ; i < arr.length ; i ++){%>
+		<dl>
+			<dt><img src="<%=arr[i].shop_ico%>"/></dt>
+			<dd>
+				<p><a href="#"><%=arr[i].shop_name%></a><span>店铺等级：<%=arr[i].level%></span></p><span>先行赔付</span><br />
+				<p>主营：<%=arr[i].main%></p><span>同城帮认证</span><br />
+				<p>地址：<%=arr[i].addr_detail%></p><span>人气1234567次浏览</span><br />
+			</dd>
+				<span class="in-shop">进入店铺</span>
+		</dl>
+	<%}%>
+</script>
+<script type="text/html" id="hot-list-tmp">
+	<%for(var i = 0 ; i < arr.length ; i ++){%>
+	<dl>
+		<dt><span>1</span><img src="<%=arr[i].shop_ico%>" alt="" /></dt>
+		<dd><a href="#"><%=arr[i].shop_name%></a></dd>
+		<dd><%=arr[i].shop_visit%></dd>
+	</dl>
+	<%}%>
+</script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=1118c35f02f4a0945dbeab07edecdc79"></script> 
 <script src="js/baiduTemplate.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/swiper.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
+	//店铺排序
+	function getAllStore(type){
+		$.get("http://localhost:6500/px",{
+    		type:type
+	    },function(res){
+	    	console.log(res);
+	    	var obj = {};
+	    	obj.arr = res;
+	    	$(".shop").html(baidu.template("store-tmp",obj))
+	    	enterStore()
+	    })
+	}
+    //点击店铺按钮进入店铺
+    function enterStore(){
+    	$.each($(".in-shop"),function(index,item){
+    		$(item).on("click",function(){
+    			open("html/shop.html")
+    		})
+    	})
+    }
+   //默认排序
+    getAllStore("")
+      $("#default").click(function(){
+      	$(this).css({
+      		color:"green",
+      		background:"#ffffff"
+      	}).nextAll().css({
+      		background:"#eee"
+      	})
+      	getAllStore("")
+      })
+      //按数量排序
+	 $("#number").click(function(){
+      	$(this).css({
+      		color:"green",
+      		background:"#ffffff"
+      	}).next().css({
+      		background:"#eee"
+      	}).prev().prev().css({
+      		background:"#eee"
+      	})
+      		getAllStore("count")
+      })
+	 //按人气排序
+	  $("#people").click(function(){
+      	$(this).css({
+      		color:"green",
+      		background:"#ffffff"
+      	}).prev().css({
+      		background:"#eee"
+      	}).prev().css({
+      		background:"#eee"
+      	})
+      		getAllStore("shop_visit")
+      })
+	  
+	  ///////////////////////////////////////////////////////////////////////////////
+	
 	//获取图片
 	function getPhone(){
 		$.get("http://localhost:6500/src/data/shoujihuishou.json",{},function(res){
@@ -298,10 +369,19 @@
 			$("#like").html(baidu.template("old-list",obj));
 		})
 	}
-	getLike()
-	
-	
-	
+	getLike();
+	//获取商家好评榜图片
+	function getHotStore(){
+		$.get("http://localhost:6500/src/data/shops.json",{},function(res){
+			console.log(res)
+			var obj = {}
+//			obj.arr = res.shop_data;
+			obj.arr = res.shop_data.slice(0,7);
+			$(".like").html(baidu.template("hot-list-tmp",obj));
+		})
+	}
+	getHotStore()
+	 ///////////////////////////////////////////////////////////////////////////////
 	//轮播图
 	var mySwiper = new Swiper('.swiper-container', {
 		autoplay: 5000,//可选选项，自动滑动
@@ -421,9 +501,7 @@
    			console.log(res)
    			
    		})
-   }
-   
-   
+   } 
    
    $("#close-lg").click(function(){
    		$("#login").hide()
@@ -431,5 +509,80 @@
    $(".lg1").click(function(){
    		$("#login").show()
    })
+    ///////////////////////////////////////////////////////////////////////////////
    
+   //点击出现地图
+   $("#map-btn").click(function(){
+   	 $("#map-box").toggle();
+   })
+   
+   
+   var map = new AMap.Map('container',{
+	   zoom: 10,
+	   center: [116.39,39.9]
+	});
+//添加地图控件
+
+	AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.OverView'],
+	    function(){
+	    	//创建工具条对象
+	        map.addControl(new AMap.ToolBar());
+			//添加到地图上
+	        map.addControl(new AMap.Scale());
+	
+	        map.addControl(new AMap.OverView({isOpen:true}));
+	});
+	//添加标记
+	marker = new AMap.Marker({
+		//标记位置 经度和纬度
+		position: [116.656552,39.886672],
+		//鼠标悬停
+		title: "顺通电脑维修",
+		icon:"image/icon.png",
+		//content:"<div class='st'>顺通电脑</div>",//icon 会被content覆盖
+		map: map
+	    });
+    //向地图添加时间
+    var clickFn= function(){
+    	alert(1)
+    }
+    AMap.event.addListener(marker,"click",clickFn);
+    //自动补全
+    AMap.plugin('AMap.Autocomplete',function(){//回调函数
+    //实例化Autocomplete
+    var autoOptions = {
+        city: "", //城市，默认全国
+        input:"search"//使用联想输入的input的id
+    };
+    autocomplete= new AMap.Autocomplete(autoOptions);
+    //TODO: 使用autocomplete对象调用相关功能
+		     AMap.event.addListener(autocomplete,"select",function(e){
+		     	console.log(e)
+		     	e.poi.location;
+		     	marker = new AMap.Marker({
+				map: map
+		    });
+	     })
+    
+	})
+    
+    AMap.service('AMap.Geocoder',function(){//回调函数
+    //实例化Geocoder
+	    geocoder = new AMap.Geocoder({
+	        city: "010"//城市，默认：“全国”
+	    });
+    //逆地理编码
+		var lnglatXY=[116.396574, 39.992706];//地图上所标点的坐标
+		geocoder.getAddress(lnglatXY, function(status, result) {
+		    if (status === 'complete' && result.info === 'OK') {
+		       //获得了有效的地址信息:
+		       //即，result.regeocode.formattedAddress
+		    }else{
+		       //获取地址失败
+		    }
+		});  
+	    //TODO: 使用geocoder 对象完成相关功能
+	})
+    
+      
 </script>
