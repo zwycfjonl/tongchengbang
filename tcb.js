@@ -18,6 +18,7 @@ http.get("/isrepeat",function(req,res){
 	var tel = req.query.tel;
 	//读取json文件
 	var bol = true;
+	//如果不存在
 	fs.readFile("./src/data/telList.json","utf-8",function(err,data){
 		var arr = JSON.parse(data);
 		for(var i =0 ;i< arr.length ; i++){
@@ -123,6 +124,58 @@ http.post("/addUser",function(req,res){
 			}
 		})
 	})
+})
+//登录
+http.post("/login",function(req,res){
+	var dataStr = "";
+	req.on("data",function(data){
+		dataStr += data;
+	})
+	req.on("end",function(){
+		var dataObj = query.parse(dataStr);
+		//读取用户电话信息的json文件
+		fs.readFile("./src/data/telList.json","utf-8",function(data){
+			var arr = JSON.parse(data);
+			for(var i = 0 ; i < arr.length ; i++){
+				if(dataObj.tel == arr[i].tel && dataObj.pwd == arr[i].pwd){
+					var sendObj = {
+						tel:arr[i].tel,
+						id:arr[i].time
+					}
+						res.send(sendObj)
+						return;
+				}
+				res.send(0)
+			}
+		})
+	})
+	
+})
+//排序
+http.get("/px",function(req,res){
+	var dataObj = req.query;
+	fs.readFile("./src/data/shop1.json","utf-8",function(err,data){
+		var arr = JSON.parse(data).shop_data;//获取店铺数组
+		if(dataObj.type == ""){
+			res.send(arr);
+			return;
+		}
+		var backarr = [];
+		var num = arr.length ;
+		for(var j = 0 ; j < num ; j++){
+			var max = arr[0][dataObj.type];
+			var index = 0 ;
+			for(var i = 0 ; i < arr.length;i++){
+				if(max*1 < arr[i][dataObj.type]*1){
+					max = arr[i][dataObj.type];
+					index = i ;
+				}
+			}
+			backarr.push(arr[index]);
+			arr.splice(index,1)
+		}
+		res.send(backarr)
+	})	
 })
 
 ///获取所有购物信息 放在最后面避免阻塞
